@@ -1,0 +1,38 @@
+.hero_content{
+    width: 65%;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+.heading{
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+.heading_two{
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.btns_grps{
+    display: flex;
+    gap: 15px;
+}
+
+.btns_grps .btn{
+    padding: 15px 20px;
+    text-transform: capitalize;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.btns_grps .btn:first-child{
+    background-color: #fc0e49;
+}
+.btns_grps .btn:last-child{
+    background-color: #484848;
+}
