@@ -5,6 +5,9 @@ import Aboutme from "./Aboutme";
 import Service from "./Service";
 import Number_section from "./Number_section";
 import Portfolio from "./Portfolio";
+import Slider from "./Slider";
+import Contact from "./Contact";
+import Footer from "./Footer";
 const Heropage = () => {
   return (
     <>
@@ -16,6 +19,9 @@ const Heropage = () => {
       <Service />
       <Number_section/>
       <Portfolio/>
+      <Slider/>
+      <Contact/>
+      <Footer/>
     </>
   );
 };
