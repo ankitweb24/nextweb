@@ -8,7 +8,10 @@ import Portfolio from "./Portfolio";
 import Slider from "./Slider";
 import Contact from "./Contact";
 import Footer from "./Footer";
+
 const Heropage = () => {
+
+
   return (
     <>
       <section className={style.hero_page}>

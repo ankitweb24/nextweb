@@ -9,16 +9,41 @@ import {
   MdSendAndArchive,
 } from "react-icons/md";
 import Link from "next/link";
-import style from '@/app/styles/contact.module.css';
+import style from "@/app/styles/contact.module.css";
+import { useState } from "react";
+import submitData from "../contactpage/data";
 const Contact_container = () => {
+
+  const [state, setState] = useState();
+
+  //define the handleSubmit function
+const handleSubmit = async (FormData) =>{
+  try {
+    const res = submitData({
+      username : FormData.get("username"),
+      email : FormData.get("email"),
+      subject : FormData.get("subject"),
+      msg : FormData.get("msg"),
+    });
+
+    if(res.status == 200){
+      setState("success")
+    }else{
+      setState("error")
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
   return (
-   <>
-     <div className="col-lg-6 col-md-6 col-sm-12">
+    <>
+      <div className="col-lg-6 col-md-6 col-sm-12">
         <div className="card bg-transparent border-0 text-light">
           <div className="card-title fs-1">Send Message Us</div>
           <hr style={{ width: "20%" }} />
 
-          <form>
+          <form action={handleSubmit}>
             <div className="mb-3">
               <label for="username" className="form-label">
                 User name
@@ -29,6 +54,7 @@ const Contact_container = () => {
                 id="username"
                 aria-describedby="username"
                 name="username"
+                autoComplete="off"
               />
             </div>
             <div className="mb-3">
@@ -41,6 +67,7 @@ const Contact_container = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 name="email"
+                autoComplete="off"
               />
               <div id="emailHelp" className="form-text  text-light">
                 We'll never share your email with anyone else.
@@ -56,6 +83,7 @@ const Contact_container = () => {
                 id="subject"
                 aria-describedby="subject"
                 name="subject"
+                autoComplete="off"
               />
             </div>
 
@@ -68,6 +96,7 @@ const Contact_container = () => {
                 placeholder="Leave a comment here"
                 name="msg"
                 id="floatingTextarea2"
+                autoComplete="off"
                 style={{ height: "100px" }}
               ></textarea>
               <label for="floatingTextarea2 text-light bg-dark">Message</label>
@@ -76,6 +105,7 @@ const Contact_container = () => {
             <button type="submit" name="submit" className="btn btn-primary">
               Send Message
             </button>
+            <p className="text-light text-center p-2 bg-secondary ">{state}</p>
           </form>
         </div>
       </div>
@@ -132,8 +162,8 @@ const Contact_container = () => {
           </div>
         </div>
       </div>
-   </>
-  )
-}
+    </>
+  );
+};
 
-export default Contact_container
+export default Contact_container;

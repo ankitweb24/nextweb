@@ -17,7 +17,7 @@ const Nav = () => {
         <Link href={"/portfolio"} className="nav-link text-light ">Projects</Link>
         </li>
         <li className="nav-item">
-        <Link href={"/contact"} className="nav-link text-light ">Contact</Link>
+        <Link href={"/contactpage"} className="nav-link text-light ">Contact</Link>
         </li>
       </ul>
     </div>
