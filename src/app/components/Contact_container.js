@@ -1,13 +1,4 @@
 "use client";
-import {
-  MdLocationOn,
-  MdRingVolume,
-  MdEmail,
-  MdFacebook,
-  MdWhatsapp,
-  MdSendTimeExtension,
-  MdSendAndArchive,
-} from "react-icons/md";
 import Link from "next/link";
 import style from "@/app/styles/contact.module.css";
 import submitContact from "../contactpage/action";
@@ -123,37 +114,29 @@ const Contact_container = () => {
 
           <ul className="list-group list-group-flush">
             <li className="list-group-item border-0 text-light bg-dark">
-              <MdLocationOn className="me-2" /> 329 WASHINGTON ST BOSTON, MA
+              329 WASHINGTON ST BOSTON, MA
               02108
             </li>
             <li className="list-group-item border-0 text-light bg-dark">
               {" "}
-              <MdRingVolume className="me-2" /> (617) 557-0089
+             (617) 557-0089
             </li>
             <li className="list-group-item text-light bg-dark">
-              <MdEmail className="me-2" /> contact@example.com
+              contact@example.com
             </li>
           </ul>
           <div className="d-flex mt-4">
             <Link className={style.social_link} href={"/"}>
-              <i>
-                <MdFacebook />
-              </i>
+               <p>icon</p>
             </Link>
             <Link className={style.social_link} href={"/"}>
-              <i>
-                <MdWhatsapp />
-              </i>
+              <p>icon</p>
             </Link>
             <Link className={style.social_link} href={"/"}>
-              <i>
-                <MdSendTimeExtension />
-              </i>
+               <p>icon</p>
             </Link>
             <Link className={style.social_link} href={"/"}>
-              <i>
-                <MdSendAndArchive />
-              </i>
+              <p>icon</p>
             </Link>
           </div>
         </div>
