@@ -10,31 +10,31 @@ import {
 } from "react-icons/md";
 import Link from "next/link";
 import style from "@/app/styles/contact.module.css";
+import submitContact from "../contactpage/action";
 import { useState } from "react";
-import submitData from "../contactpage/data";
 const Contact_container = () => {
 
-  const [state, setState] = useState();
+  const [status, setStatus] = useState();
 
-  //define the handleSubmit function
-const handleSubmit = async (FormData) =>{
-  try {
-    const res = submitData({
-      username : FormData.get("username"),
-      email : FormData.get("email"),
-      subject : FormData.get("subject"),
-      msg : FormData.get("msg"),
-    });
+  const handleSubmit = async (FormData) => {
+    try {
+      const response = await submitContact({
+        username : FormData.get('username'),
+        email : FormData.get('email'),
+        subject : FormData.get('subject'),
+        msg : FormData.get('msg'),
+      })
 
-    if(res.status == 200){
-      setState("success")
-    }else{
-      setState("error")
+      if(response.status === 200){
+        setStatus('success');
+      }else{
+        setStatus('error');
+      }
+
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-}
+  };
 
   return (
     <>
@@ -54,7 +54,6 @@ const handleSubmit = async (FormData) =>{
                 id="username"
                 aria-describedby="username"
                 name="username"
-                autoComplete="off"
               />
             </div>
             <div className="mb-3">
@@ -67,7 +66,6 @@ const handleSubmit = async (FormData) =>{
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 name="email"
-                autoComplete="off"
               />
               <div id="emailHelp" className="form-text  text-light">
                 We'll never share your email with anyone else.
@@ -83,7 +81,6 @@ const handleSubmit = async (FormData) =>{
                 id="subject"
                 aria-describedby="subject"
                 name="subject"
-                autoComplete="off"
               />
             </div>
 
@@ -96,7 +93,6 @@ const handleSubmit = async (FormData) =>{
                 placeholder="Leave a comment here"
                 name="msg"
                 id="floatingTextarea2"
-                autoComplete="off"
                 style={{ height: "100px" }}
               ></textarea>
               <label for="floatingTextarea2 text-light bg-dark">Message</label>
@@ -105,7 +101,7 @@ const handleSubmit = async (FormData) =>{
             <button type="submit" name="submit" className="btn btn-primary">
               Send Message
             </button>
-            <p className="text-light text-center p-2 bg-secondary ">{state}</p>
+            <p className="text-light bg-danger">{status}</p>
           </form>
         </div>
       </div>

@@ -1,21 +1,21 @@
 import mongoose from "mongoose";
 
 const contactSchema = new mongoose.Schema({
-    username : {
-        type :"String",
-        required : true
-    },
+    // username : {
+    //     type : String,
+    //     // required : true
+    // },
     email : {
         type : "String",
-        required : true
+        // required : true
     },
     subject : {
         type : "String",
-        required : true
+        // required : true
     },
     msg : {
         type : "String",
-        required : true
+        // required : true
     }
 },{timestamps : true})
 

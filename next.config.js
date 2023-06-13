@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   experimental : {
+    experimental : {
         appDir : true,
         serverComponentsExternalPackages : ['mongoose'],
         serverActions : true
